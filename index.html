@@ -31,18 +31,6 @@
     cursor: crosshair;
   }
 
-  .cell {
-    background-color: rgb(241, 241, 241);
-    margin: 1px;
-    width: 18px;
-    height: 18px;
-    border-radius: 2px;
-  }
-
-  .cell.painted {
-    background-color: red;
-  }
-
   .centering {
     text-align: center;
   }
@@ -54,13 +42,34 @@
     border-radius: 5px;
   }
 
+  button:hover {
+    cursor: pointer;
+  }
+
+  .cell {
+    margin: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+  }
+
+  kbd {
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-family: Arial, sans-serif;
+  }
+
+  .cell {
+    background-color: rgb(241, 241, 241);
+  }
+
+  .cell.painted {
+    background-color: red;
+  }
+
   #get-btn {
     background-color: rgb(50, 136, 50);
     color: white;
-  }
-
-  button:hover {
-    cursor: pointer;
   }
 
   body {
@@ -70,9 +79,48 @@
   kbd {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    border-radius: 3px;
-    padding: 2px 5px;
-    font-family: Arial, sans-serif;
+  }
+
+  input {
+    padding: 5px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .cell {
+      background-color: rgb(60, 60, 60);
+    }
+
+    .cell.painted {
+      background-color: #ab0000;
+    }
+
+    button {
+      background: none;
+      border: 1px solid #a0a0a0;
+      color: inherit;
+    }
+
+    #get-btn {
+      background-color: rgb(40, 126, 40);
+      color: #f0f0f0;
+    }
+
+    body {
+      background-color: rgb(82, 81, 81);
+      color: #f0f0f0;
+    }
+
+    kbd {
+      background: none;
+      color: inherit;
+      border: 1px solid #a0a0a0;
+    }
+
+    input {
+      background: none;
+      color: inherit;
+      border: 1px solid #a0a0a0;
+    }
   }
 </style>
 
