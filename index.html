@@ -25,7 +25,22 @@
   <button id="generate-btn">Generar</button>
   <div class="container"></div>
   <p>Haz click y arrastra el mouse para pintar; pulsa la tecla <kbd>Ctrl</kbd> para borrar</p>
-  <button id="get-btn">Descargar</button>
+  <button id="modal-btn">Descargar</button>
+  <dialog class="centering">
+    <h2> ¿Cómo quieres descargar la matriz? </h2>
+    <div>
+      <label for="separator">Separador (por defecto es un espacio en blanco):</label>
+      <input id="separator" name="separator" value=" " />
+    </div>
+    <div>
+      <label for="filename">Nombre del archivo (default: grid.txt):</label>
+      <input id="filename" name="filename" placeholder="grid.txt" />
+    </div>
+    <footer>
+      <button id="get-btn">Descargar</button>
+      <button id="cancel-btn" autofocus>Cancelar</button>
+    </footer>
+  </dialog>
 </body>
 
 </html>

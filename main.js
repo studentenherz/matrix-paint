@@ -3,6 +3,11 @@ const yInput = document.querySelector("#Ny");
 const generateBtn = document.querySelector("#generate-btn");
 const getBtn = document.querySelector("#get-btn");
 const container = document.querySelector(".container");
+const modalBtn = document.querySelector("#modal-btn");
+const dialog = document.querySelector("dialog");
+const separator = document.querySelector("#separator");
+const filename = document.querySelector("#filename");
+const cancelBtn = document.querySelector("#cancel-btn");
 
 let mouseDown = false;
 
@@ -67,6 +72,8 @@ const generate = () => {
 
 const downloadTextFile = () => {
   const grid = container.querySelector(".grid");
+  const sep = separator.value;
+  const fName = filename.value.trim() || "grid.txt";
 
   let array = new Array();
 
@@ -82,7 +89,7 @@ const downloadTextFile = () => {
   for (let i = 0; i < array[0].length; i++) {
     let row_text = "";
     for (let j = 0; j < array.length - 1; j++)
-      row_text += array[j][i] + " ";
+      row_text += array[j][i] + sep;
     text += row_text + array[array.length - 1][i] + "\n";
   }
 
@@ -91,13 +98,21 @@ const downloadTextFile = () => {
 
   const a = document.createElement('a');
   a.href = blobUrl;
-  a.download = 'grid.dat';
+  a.download = fName;
 
   a.click();
   URL.revokeObjectURL(blobUrl);
 }
 
 const main = () => {
+  modalBtn.addEventListener("click", () => {
+    dialog.showModal();
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    dialog.close();
+  });
+
   getBtn.addEventListener("click", downloadTextFile);
 
   generateBtn.addEventListener("click", () => {
